@@ -14,9 +14,9 @@ set :user, "djconseil"
 set :deploy_via, :remote_cache
 set :deploy_to, "/home/#{fetch(:application)}"
 
-role :app, "baal.igreg.info"
-role :web, "baal.igreg.info"
-role :db,  "baal.igreg.info", :primary => true
+role :app, "lol.igreg.info"
+role :web, "lol.igreg.info"
+role :db,  "lol.igreg.info", :primary => true
 
 before "deploy:symlink", "deploy:symlinks"
 before "deploy:symlink", "deploy:migrate"
@@ -29,7 +29,7 @@ namespace :deploy do
   task :restart, :roles => :web do
     run "touch #{current_path}/tmp/restart.txt"
   end
-  
+
   task :start, :roles => :web do
     deploy.restart
   end
